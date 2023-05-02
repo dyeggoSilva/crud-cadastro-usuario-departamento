@@ -18,6 +18,6 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String depatment;
+	private String name;
 
 }
