@@ -23,38 +23,33 @@ import lombok.AllArgsConstructor;
 public class UserController {
 	@Autowired
 	private UserRepository repository;
-	
+
 	@GetMapping
-	public List<User> todos(){
+	public List<User> todos() {
 		List<User> resp = repository.findAll();
 		return resp;
 	}
-	
+
 	@GetMapping(value = "/{id}")
-	public User usuarioId(@PathVariable Long id){
+	public User usuarioId(@PathVariable Long id) {
 		User resp = repository.findById(id).get();
 		return resp;
 	}
-	
 
 	@PostMapping
-	public User usuarioId(@RequestBody User use){
+	public User usuarioId(@RequestBody User use) {
 		User resp = repository.save(use);
 		return resp;
-		
 	}
-	
+
 	@DeleteMapping(value = "/{id}")
 	public void deleteUser(@PathVariable Long id) {
 		repository.deleteById(id);
 	}
-	
+
 	@PutMapping
 	public User atualiUser(@RequestBody User use) {
-		 User resp = repository.save(use);
-		 return resp;
-		}
-
-
-
+		User resp = repository.save(use);
+		return resp;
+	}
 }
